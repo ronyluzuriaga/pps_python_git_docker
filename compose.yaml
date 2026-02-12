@@ -1,21 +1,20 @@
-version: "3.9"
-
 services:
   app:
     build: .
-    container_name: bayeta
+    container_name: bayeta-app      # CAMBIO 1: Nombre único
     ports:
       - "5000:5000"
     depends_on:
       - mongo
     environment:
       - FLASK_ENV=production
+      - MONGO_URI=mongodb://bayeta-db:27017/  # CAMBIO 2: Conexión a la BD
     networks:
       - red-bayeta
 
   mongo:
     image: mongo:6
-    container_name: bayeta
+    container_name: bayeta-db       # CAMBIO 1: Nombre único
     restart: always
     ports:
       - "27017:27017"
@@ -25,7 +24,7 @@ services:
       - red-bayeta
 
 networks:
-  bayeta_net:
+  red-bayeta:                       # CAMBIO 3: El nombre coincide con los servicios
 
 volumes:
   mongo_data:
