@@ -1,9 +1,7 @@
-# Importamos las funciones del nuevo módulo
-from mongo_manager import inicializar, consultar
+from bbdd_frase import obtener_frases, insertar_frases
 
-# Inicializamos la BBDD al arrancar (solo insertará si está vacía)
-inicializar()
+def frotar(n_frases: int = 1) -> list:
+    return obtener_frases(n_frases)
 
-def frotar(n_frases: int) -> list:
-    # Delegamos la consulta a MongoDB
-    return consultar(n_frases)
+def anadir(frases: list):
+    insertar_frases(frases)
