@@ -1,12 +1,9 @@
-import random
+# Importamos las funciones del nuevo módulo
+from mongo_manager import inicializar, consultar
 
-def frotar(n_frases: int = 1) -> list():
+# Inicializamos la BBDD al arrancar (solo insertará si está vacía)
+inicializar()
 
-    try:
-        with open ("frases.txt" , "r", encoding="utf-8") as f:
-            frases = [frase.strip() for frase in f.readlines() if frase.strip()]
-
-        frase_elegida = random.choices (frases, k=n_frases)
-        return frase_elegida
-    except FileNotFoundError:
-        return ["Error en la elección de frase"]
+def frotar(n_frases: int) -> list:
+    # Delegamos la consulta a MongoDB
+    return consultar(n_frases)
