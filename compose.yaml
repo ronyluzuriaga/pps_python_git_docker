@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: bayeta
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    environment:
+      - FLASK_ENV=production
+    networks:
+      - red-bayeta
+
+  mongo:
+    image: mongo:6
+    container_name: bayeta
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - red-bayeta
+
+networks:
+  bayeta_net:
+
+volumes:
+  mongo_data:
