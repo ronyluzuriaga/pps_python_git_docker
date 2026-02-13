@@ -72,3 +72,6 @@ Devolverá una respuesta en formato JSON:
   ]
 }
 ```
+### Añadir frases
+Para añadir frases nuevas a nuestra base de datos se ha añadido la opción de subir un archivo .json, el cual debe de tener un 
+formato de lista. Para ello debemos dirigirnos, con el docker levantado, a la URL http://localhost:5000/add 
