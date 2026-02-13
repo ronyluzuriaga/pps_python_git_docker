@@ -29,15 +29,20 @@ Una vez activado el entorno virtual, instala las dependencias necesarias:
 ```bash
 pip install -r requirements.txt
 ```
+### 3. Docker
+Se ha creado un compose.yaml que levante el docker necesario para el correcto funcionamiento de las funciones. Para levantarlos se usará el comando:
 
-### 3. Configuración de Frases
-La aplicación necesita una "base de datos" de frases. Asegúrate de tener un archivo llamado frases.txt en la misma carpeta que app.py.
+```bash
+docker compose up --build
+```
+Con ello tendremos nuestra base de datos lista para guardar nuestras frases auspiciosas.
 
-El archivo debe contener una frase por línea.
+### 4. Configuración de Frases
+Para disponer siempre de frases en la base de datos, se ha configurado que, al iniciar el app.py se cargarán las frases de frases.txt
 
-Puedes añadir tantas frases como quieras.
+Puedes añadir tantas frases como quieras desde el nuevo endpoint.
 
-### 4. Ejecutar la aplicación
+### 5. Ejecutar la aplicación
 Una vez instaladas las dependencias y creado el fichero de texto, ejecuta el servidor:
 
 ```bash
@@ -72,6 +77,6 @@ Devolverá una respuesta en formato JSON:
   ]
 }
 ```
-### Añadir frases
-Para añadir frases nuevas a nuestra base de datos se ha añadido la opción de subir un archivo .json, el cual debe de tener un 
-formato de lista. Para ello debemos dirigirnos, con el docker levantado, a la URL http://localhost:5000/add 
+Añadir frases a la base de datos: http://localhost:5000/add abrirá una web con un formulario que permite cargar archivos. Admitirá solo archivos .json en forma de listas o diccionarios. Se ha realizado una comprobación de errores que confirme que el archivo subido es correcto.
+
+
