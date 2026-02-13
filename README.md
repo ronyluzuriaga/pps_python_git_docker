@@ -35,20 +35,12 @@ Se ha creado un compose.yaml que levante el docker necesario para el correcto fu
 ```bash
 docker compose up --build
 ```
-Con ello tendremos nuestra base de datos lista para guardar nuestras frases auspiciosas.
+Con ello tendremos nuestra base de datos y aplicación listas para guardar y mostrar nuestras frases auspiciosas.
 
 ### 4. Configuración de Frases
 Para disponer siempre de frases en la base de datos, se ha configurado que, al iniciar el app.py se cargarán las frases de frases.txt
 
 Puedes añadir tantas frases como quieras desde el nuevo endpoint.
-
-### 5. Ejecutar la aplicación
-Una vez instaladas las dependencias y creado el fichero de texto, ejecuta el servidor:
-
-```bash
-python app.py
-```
-Verás un mensaje indicando que el servidor está corriendo (generalmente en http://127.0.0.1:5000 o localhost).
 
 ### Cómo usar la API
 Una vez la aplicación esté ejecutándose, abre tu navegador web y prueba las siguientes rutas:
